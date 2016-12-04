@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>invalid.html</file>
+        <file>valid.html</file>
+    </qresource>
+</RCC>

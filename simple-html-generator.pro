@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui xmlpatterns
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,12 +13,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    filemanipulator.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    filemanipulator.h
 
 FORMS    += mainwindow.ui
 
-RESOURCES += qdarkstyle/style.qrc
+RESOURCES += qdarkstyle/style.qrc \
+    html_schema/html_schema.qrc \
+    demo_resources/demo_resources.qrc
 
 DISTFILES +=

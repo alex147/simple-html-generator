@@ -1,0 +1,41 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="html">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="head">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="title"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="body">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice>
+                <xs:element type="xs:string" name="img"/>
+                <xs:element type="xs:string" name="a"/>
+                <xs:element type="xs:string" name="h1"/>
+                <xs:element type="xs:string" name="h2"/>
+                <xs:element type="xs:string" name="h3"/>
+                <xs:element type="xs:string" name="h4"/>
+                <xs:element type="xs:string" name="h5"/>
+                <xs:element type="xs:string" name="h6"/>
+                <xs:element type="xs:string" name="b"/>
+                <xs:element type="xs:string" name="strong"/>
+                <xs:element type="xs:string" name="i"/>
+                <xs:element type="xs:string" name="em"/>
+                <xs:element type="xs:string" name="mark"/>
+                <xs:element type="xs:string" name="small"/>
+                <xs:element type="xs:string" name="del"/>
+                <xs:element type="xs:string" name="ins"/>
+                <xs:element type="xs:string" name="sub"/>
+                <xs:element type="xs:string" name="sup"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
