@@ -1,23 +1,55 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "droparea.h"
+#include "elementsarea.h"
 
 #include <QFileDialog>
 #include <QDir>
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
+#include <QHBoxLayout>
+
+QtAwesome* MainWindow::awesome = new QtAwesome( qApp );
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    awesome->initFontAwesome();
+
+    QLayout* layout = createDesignerLayout();
+    ui->designerTab->setLayout(layout);
+
     fileManipulator = new FileManipulator();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+QLayout* MainWindow::createDesignerLayout()
+{
+    QWidget* dropArea = new DropArea();
+    dropArea->setObjectName("dropArea");
+    QWidget* elementsArea = new ElementsArea();
+
+    QSizePolicy dropAreaSizePolicy = dropArea->sizePolicy();
+    dropAreaSizePolicy.setHorizontalStretch(9);
+    dropArea->setSizePolicy(dropAreaSizePolicy);
+
+    QSizePolicy elementsAreaSizePolicy = elementsArea->sizePolicy();
+    elementsAreaSizePolicy.setHorizontalStretch(1);
+    elementsArea->setSizePolicy(elementsAreaSizePolicy);
+    elementsArea->setMinimumWidth(100);
+
+    QHBoxLayout* layout = new QHBoxLayout();
+    layout->addWidget(dropArea);
+    layout->addWidget(elementsArea);
+
+    return layout;
 }
 
 void MainWindow::on_actionNew_triggered()
@@ -28,7 +60,7 @@ void MainWindow::on_actionNew_triggered()
     }
 
     ui->previewText->setPlainText("");
-    //TODO: Reset designer view, too.
+    qDeleteAll(ui->designerTab->findChild<QObject *>("dropArea")->findChildren<QLabel *>());
 }
 
 void MainWindow::on_actionExit_triggered()

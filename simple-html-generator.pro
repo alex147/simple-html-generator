@@ -14,10 +14,18 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    filemanipulator.cpp
+    filemanipulator.cpp \
+    dragwidget.cpp \
+    droparea.cpp \
+    elementsarea.cpp \
+    flowlayout.cpp
 
 HEADERS  += mainwindow.h \
-    filemanipulator.h
+    filemanipulator.h \
+    dragwidget.h \
+    droparea.h \
+    elementsarea.h \
+    flowlayout.h
 
 FORMS    += mainwindow.ui
 
@@ -26,3 +34,5 @@ RESOURCES += qdarkstyle/style.qrc \
     demo_resources/demo_resources.qrc
 
 DISTFILES +=
+
+include(QtAwesome/QtAwesome.pri)
