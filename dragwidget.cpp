@@ -2,6 +2,10 @@
 
 #include <QtWidgets>
 
+/**
+ * @brief Constructs a DragWidget object.
+ * @param parent the parent widget of this DragWidget.
+ */
 DragWidget::DragWidget(QWidget *parent)
     : QFrame(parent)
 {
@@ -9,6 +13,10 @@ DragWidget::DragWidget(QWidget *parent)
     setStyleSheet("background-color: #AAAAAA");
 }
 
+/**
+ * @brief Handler for the QDragEnterEvent.
+ * @param event the QDragEnterEvent to handle.
+ */
 void DragWidget::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
@@ -22,7 +30,10 @@ void DragWidget::dragEnterEvent(QDragEnterEvent *event)
         event->ignore();
     }
 }
-
+/**
+ * @brief Handler for the QDragMoveEvent.
+ * @param event the QDragMoveEvent to handle.
+ */
 void DragWidget::dragMoveEvent(QDragMoveEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
@@ -36,7 +47,10 @@ void DragWidget::dragMoveEvent(QDragMoveEvent *event)
         event->ignore();
     }
 }
-
+/**
+ * @brief Handler for the QDropEvent.
+ * @param event the QDropEvent to handle.
+ */
 void DragWidget::dropEvent(QDropEvent *event)
 {
     if (event->mimeData()->hasFormat("application/x-dnditemdata")) {
@@ -47,6 +61,8 @@ void DragWidget::dropEvent(QDropEvent *event)
         QPoint offset;
         dataStream >> pixmap >> offset;
 
+        // Create a new QLabel at the spot,
+        // where the drop happened.
         QLabel *newIcon = new QLabel(this);
         newIcon->setPixmap(pixmap);
         newIcon->move(event->pos() - offset);
@@ -64,6 +80,10 @@ void DragWidget::dropEvent(QDropEvent *event)
     }
 }
 
+/**
+ * @brief Handler for the mouse press event.
+ * @param event the QMouseEvent to handle.
+ */
 void DragWidget::mousePressEvent(QMouseEvent *event)
 {
     QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
@@ -77,8 +97,11 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
     dataStream << pixmap << QPoint(event->pos() - child->pos());
 
     QMimeData *mimeData = new QMimeData;
+    // Set a custom mime type, so that we can differentiate
+    // drag & drop events from others.
     mimeData->setData("application/x-dnditemdata", itemData);
 
+    // Start the actual drag.
     QDrag *drag = new QDrag(this);
     drag->setMimeData(mimeData);
     drag->setPixmap(pixmap);

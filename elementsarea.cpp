@@ -10,6 +10,7 @@ ElementsArea::ElementsArea()
 {
     setAcceptDrops(false);
 
+    // All available HTML elements should be included here.
     QLabel *anchor = new QLabel();
     anchor->setPixmap(MainWindow::awesome->icon( fa::anchor ).pixmap(32,32));
     anchor->setAttribute(Qt::WA_DeleteOnClose);

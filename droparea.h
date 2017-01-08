@@ -3,6 +3,10 @@
 
 #include "dragwidget.h"
 
+/**
+ * Subclass of the DragWidget that accepts drops.
+ * Acts as a designer pane where user drops HTML elements.
+ */
 class DropArea : public DragWidget
 {
 public:

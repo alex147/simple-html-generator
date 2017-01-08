@@ -6,6 +6,9 @@
 class QDragEnterEvent;
 class QDropEvent;
 
+/**
+ * @brief Base class that handles drap & drop actions.
+ */
 class DragWidget : public QFrame
 {
 public:

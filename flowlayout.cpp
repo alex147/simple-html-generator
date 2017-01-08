@@ -99,6 +99,9 @@ QSize FlowLayout::minimumSize() const
     return size;
 }
 
+/**
+ * Does the actual positioning of the contained elements.
+ */
 int FlowLayout::doLayout(const QRect &rect, bool testOnly) const
 {
     int left, top, right, bottom;

@@ -5,6 +5,12 @@
 #include <QRect>
 #include <QStyle>
 
+/**
+ * @brief A subclass of QLayout used for smart spacing.
+ *
+ * It rearranges contained elements when space changes.
+ * Very useful when targeting support for various window resolutions.
+ */
 class FlowLayout : public QLayout
 {
 public:

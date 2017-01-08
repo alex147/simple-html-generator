@@ -6,6 +6,9 @@
 #include <QtXmlPatterns>
 #include <QUrl>
 
+/**
+ * @brief Constructs a FileManipulator object.
+ */
 FileManipulator::FileManipulator()
 {
     QUrl schemaUrl("qrc:///html_schema.xsd");
@@ -20,6 +23,11 @@ FileManipulator::FileManipulator()
     }
 }
 
+/**
+ * @brief Saves the given string to a new file.
+ * @param string the QString to write to the file.
+ * @param fileName the name of the file to create.
+ */
 void FileManipulator::save_to_file(QString string, QString fileName)
 {
     QFile file(fileName);
@@ -33,6 +41,12 @@ void FileManipulator::save_to_file(QString string, QString fileName)
     file.close();
 }
 
+/**
+ * @brief Reads and validates the contents of a file with the given name.
+ * @param fileName the name of the file to read from.
+ * @return The contents of the file as a QString or an empty string
+ * if the contents of the file do not satisfy the xsd schema.
+ */
 QString FileManipulator::read_from_file(QString fileName)
 {
     QFile file(fileName);
