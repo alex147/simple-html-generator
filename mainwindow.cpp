@@ -157,7 +157,8 @@ void MainWindow::on_actionOpen_triggered()
  */
 bool MainWindow::showProgressLossWarning()
 {
-    if (ui->previewText->toPlainText() != "")
+    if (ui->previewText->toPlainText() != "" ||
+            !ui->designerTab->findChild<QObject *>("dropArea")->findChildren<QLabel *>().empty())
     {
         QString warningMessage =
                 "This action will "
