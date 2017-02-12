@@ -11,6 +11,9 @@ class DropArea : public DragWidget
 {
 public:
     DropArea();
+
+protected:
+    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 };
 
 #endif // DROPAREA_H

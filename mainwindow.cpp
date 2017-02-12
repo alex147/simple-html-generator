@@ -65,7 +65,7 @@ QLayout* MainWindow::createDesignerLayout()
     QSizePolicy elementsAreaSizePolicy = elementsArea->sizePolicy();
     elementsAreaSizePolicy.setHorizontalStretch(1);
     elementsArea->setSizePolicy(elementsAreaSizePolicy);
-    elementsArea->setMinimumWidth(100);
+    elementsArea->setMinimumWidth(130);
 
     QHBoxLayout* layout = new QHBoxLayout();
     layout->addWidget(dropArea);

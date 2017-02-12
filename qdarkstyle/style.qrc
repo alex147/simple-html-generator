@@ -40,9 +40,11 @@
         <file>rc/radio_unchecked_focus.png</file>
         <file>rc/radio_unchecked.png</file>
         <file>rc/600px-HTML5_Badge.svg.png</file>
+        <file>rc/background.png</file>
     </qresource>
     <qresource prefix="/qdarkstyle">
         <file>style.qss</file>
         <file>darkorange.qss</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

@@ -18,14 +18,34 @@ SOURCES += main.cpp\
     dragwidget.cpp \
     droparea.cpp \
     elementsarea.cpp \
-    flowlayout.cpp
+    flowlayout.cpp \
+    domelement.cpp \
+    dialogservice.cpp \
+    htmlheading.cpp \
+    htmlparagraph.cpp \
+    htmlunderline.cpp \
+    htmlstrikethrough.cpp \
+    htmlitalic.cpp \
+    htmlbold.cpp \
+    htmlimage.cpp \
+    htmlanchor.cpp
 
 HEADERS  += mainwindow.h \
     filemanipulator.h \
     dragwidget.h \
     droparea.h \
     elementsarea.h \
-    flowlayout.h
+    flowlayout.h \
+    domelement.h \
+    dialogservice.h \
+    htmlheading.h \
+    htmlparagraph.h \
+    htmlunderline.h \
+    htmlstrikethrough.h \
+    htmlitalic.h \
+    htmlbold.h \
+    htmlimage.h \
+    htmlanchor.h
 
 FORMS    += mainwindow.ui
 

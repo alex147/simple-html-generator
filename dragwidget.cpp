@@ -1,4 +1,13 @@
 #include "dragwidget.h"
+#include "domelement.h"
+#include "htmlheading.h"
+#include "htmlparagraph.h"
+#include "htmlunderline.h"
+#include "htmlstrikethrough.h"
+#include "htmlitalic.h"
+#include "htmlbold.h"
+#include "htmlimage.h"
+#include "htmlanchor.h"
 
 #include <QtWidgets>
 
@@ -10,7 +19,15 @@ DragWidget::DragWidget(QWidget *parent)
     : QFrame(parent)
 {
     setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
-    setStyleSheet("background-color: #AAAAAA");
+    dialogService = new DialogService();
+}
+
+void DragWidget::paintEvent(QPaintEvent *)
+{
+    QStyleOption opt;
+    opt.init(this);
+    QPainter p(this);
+    style()->drawPrimitive(QStyle::PE_Widget, &opt, &p, this);
 }
 
 /**
@@ -59,15 +76,22 @@ void DragWidget::dropEvent(QDropEvent *event)
 
         QPixmap pixmap;
         QPoint offset;
-        dataStream >> pixmap >> offset;
+        int type;
+        dataStream >> pixmap >> offset >> type;
 
-        // Create a new QLabel at the spot,
+        // Create a new DomElement at the spot,
         // where the drop happened.
-        QLabel *newIcon = new QLabel(this);
-        newIcon->setPixmap(pixmap);
-        newIcon->move(event->pos() - offset);
-        newIcon->show();
-        newIcon->setAttribute(Qt::WA_DeleteOnClose);
+        DomElement *newElement = createDomElement(type);
+        if (!tmp.isEmpty()) {
+            newElement->setAttributes(tmp);
+            tmp.clear();
+        }
+
+        newElement->setDoubleClickEnabled(true);
+        newElement->setPixmap(pixmap);
+        newElement->move(event->pos() - offset);
+        newElement->show();
+        newElement->setAttribute(Qt::WA_DeleteOnClose);
 
         if (event->source() == this) {
             event->setDropAction(Qt::MoveAction);
@@ -80,21 +104,41 @@ void DragWidget::dropEvent(QDropEvent *event)
     }
 }
 
+DomElement *DragWidget::createDomElement(int type)
+{
+    DomElement *newElement;
+    switch(type)
+    {
+        case 1: newElement = new HtmlHeading(this); break;
+        case 2: newElement = new HtmlParagraph(this); break;
+        case 3: newElement = new HtmlUnderline(this); break;
+        case 4: newElement = new HtmlStrikethrough(this); break;
+        case 5: newElement = new HtmlItalic(this); break;
+        case 6: newElement = new HtmlBold(this); break;
+        case 7: newElement = new HtmlImage(this); break;
+        case 8: newElement = new HtmlAnchor(this); break;
+    }
+
+    return newElement;
+}
+
 /**
  * @brief Handler for the mouse press event.
  * @param event the QMouseEvent to handle.
  */
 void DragWidget::mousePressEvent(QMouseEvent *event)
 {
-    QLabel *child = static_cast<QLabel*>(childAt(event->pos()));
+    DomElement *child = static_cast<DomElement*>(childAt(event->pos()));
     if (!child)
         return;
+
+    tmp = child->getAttributes();
 
     QPixmap pixmap = *child->pixmap();
 
     QByteArray itemData;
     QDataStream dataStream(&itemData, QIODevice::WriteOnly);
-    dataStream << pixmap << QPoint(event->pos() - child->pos());
+    dataStream << pixmap << QPoint(event->pos() - child->pos()) << child->getType();
 
     QMimeData *mimeData = new QMimeData;
     // Set a custom mime type, so that we can differentiate
@@ -120,5 +164,20 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
     } else {
         child->show();
         child->setPixmap(pixmap);
+    }
+}
+
+void DragWidget::mouseDoubleClickEvent(QMouseEvent * event)
+{
+    DomElement *child = static_cast<DomElement*>(childAt(event->pos()));
+    if (!child)
+        return;
+
+    if (child->getDoubleClickEnabled())
+    {
+        QMap<QString, QString> result = dialogService->showDialog(child->getAttributes());
+        if (!result.isEmpty()) {
+            child->setAttributes(result);
+        }
     }
 }
