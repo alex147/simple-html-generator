@@ -104,19 +104,24 @@ void DragWidget::dropEvent(QDropEvent *event)
     }
 }
 
+/**
+ * @brief Creates a new {@link DomElement} object based on the given type.
+ * @param type
+ * @return A new {@link DomElement} object of the correct type.
+ */
 DomElement *DragWidget::createDomElement(int type)
 {
     DomElement *newElement;
     switch(type)
     {
-        case 1: newElement = new HtmlHeading(this); break;
-        case 2: newElement = new HtmlParagraph(this); break;
-        case 3: newElement = new HtmlUnderline(this); break;
-        case 4: newElement = new HtmlStrikethrough(this); break;
-        case 5: newElement = new HtmlItalic(this); break;
-        case 6: newElement = new HtmlBold(this); break;
-        case 7: newElement = new HtmlImage(this); break;
-        case 8: newElement = new HtmlAnchor(this); break;
+        case DomElement::HEADING_TYPE: newElement = new HtmlHeading(this); break;
+        case DomElement::PARAGRAPH_TYPE: newElement = new HtmlParagraph(this); break;
+        case DomElement::UNDERLINE_TYPE: newElement = new HtmlUnderline(this); break;
+        case DomElement::STRIKETHROUGH_TYPE: newElement = new HtmlStrikethrough(this); break;
+        case DomElement::ITALIC_TYPE: newElement = new HtmlItalic(this); break;
+        case DomElement::BOLD_TYPE: newElement = new HtmlBold(this); break;
+        case DomElement::IMAGE_TYPE: newElement = new HtmlImage(this); break;
+        case DomElement::ANCHOR_TYPE:newElement = new HtmlAnchor(this); break;
     }
 
     return newElement;
@@ -167,6 +172,14 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
     }
 }
 
+/**
+ * @brief Handler for the mouse double click event.
+ *
+ * NOTE: Keep in mind that the {@link mousePressEvent} handler
+ * is always executed first on double click.
+ *
+ * @param event the QMouseEvent to handle.
+ */
 void DragWidget::mouseDoubleClickEvent(QMouseEvent * event)
 {
     DomElement *child = static_cast<DomElement*>(childAt(event->pos()));

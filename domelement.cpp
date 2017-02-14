@@ -15,3 +15,13 @@ bool DomElement::getDoubleClickEnabled()
 {
     return this->isDoubleClickEnabled;
 }
+
+QMap<QString, QString> DomElement::getAttributes()
+{
+    return this->attributes;
+}
+
+void DomElement::setAttributes(QMap<QString, QString> attrs)
+{
+    this->attributes = attrs;
+}

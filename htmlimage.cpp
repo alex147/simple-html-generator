@@ -3,7 +3,6 @@
 HtmlImage::HtmlImage(QWidget* parent)
     : DomElement(parent)
 {
-    type = 7;
     attributes.insert("Source", "");
     attributes.insert("Alternative text", "");
     attributes.insert("Width", "");
@@ -12,17 +11,7 @@ HtmlImage::HtmlImage(QWidget* parent)
 
 int HtmlImage::getType()
 {
-    return this->type;
-}
-
-QMap<QString, QString> HtmlImage::getAttributes()
-{
-    return this->attributes;
-}
-
-void HtmlImage::setAttributes(QMap<QString, QString> attrs)
-{
-    this->attributes = attrs;
+    return DomElement::IMAGE_TYPE;
 }
 
 QString HtmlImage::toHtml()
