@@ -16,5 +16,9 @@ int HtmlImage::getType()
 
 QString HtmlImage::toHtml()
 {
-    return "";
+    return  QString("<img src='%1' alt='%2' height='%3' width='%4'>")
+            .arg(attributes.value("Source"),
+                 attributes.value("Alternative text"),
+                 attributes.value("Height"),
+                 attributes.value("Width"));
 }

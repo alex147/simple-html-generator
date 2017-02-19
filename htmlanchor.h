@@ -1,7 +1,6 @@
 #ifndef HTMLANCHOR_H
 #define HTMLANCHOR_H
 
-#include <QMap>
 #include <QWidget>
 #include "domelement.h"
 

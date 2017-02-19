@@ -1,7 +1,6 @@
 #ifndef HTMLIMAGE_H
 #define HTMLIMAGE_H
 
-#include <QMap>
 #include <QWidget>
 #include "domelement.h"
 

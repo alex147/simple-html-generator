@@ -1,7 +1,6 @@
 #ifndef HTMLBOLD_H
 #define HTMLBOLD_H
 
-#include <QMap>
 #include <QWidget>
 #include "domelement.h"
 

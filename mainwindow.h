@@ -36,6 +36,11 @@ private slots:
     void on_actionSave_triggered();
     void on_actionOpen_triggered();
     void on_actionNew_triggered();
+    void on_actionAbout_triggered();
+
+    void on_copyToClipButton_clicked();
+
+    void on_translateButton_clicked();
 
 private:
     bool showProgressLossWarning();

@@ -13,5 +13,6 @@ int HtmlBold::getType()
 
 QString HtmlBold::toHtml()
 {
-    return "";
+    return  QString("<b>%1</b>")
+            .arg(attributes.value("Text"));
 }

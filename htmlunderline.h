@@ -1,7 +1,6 @@
 #ifndef HTMLUNDERLINE_H
 #define HTMLUNDERLINE_H
 
-#include <QMap>
 #include <QWidget>
 #include "domelement.h"
 

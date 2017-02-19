@@ -13,5 +13,6 @@ int HtmlStrikethrough::getType()
 
 QString HtmlStrikethrough::toHtml()
 {
-    return "";
+    return  QString("<s>%1</s>")
+            .arg(attributes.value("Text"));
 }

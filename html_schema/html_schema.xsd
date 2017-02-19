@@ -31,6 +31,9 @@
                 <xs:element type="xs:string" name="ins"/>
                 <xs:element type="xs:string" name="sub"/>
                 <xs:element type="xs:string" name="sup"/>
+                <xs:element type="xs:string" name="p"/>
+                <xs:element type="xs:string" name="u"/>
+                <xs:element type="xs:string" name="s"/>
               </xs:choice>
             </xs:sequence>
           </xs:complexType>

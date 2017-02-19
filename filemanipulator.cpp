@@ -28,7 +28,7 @@ FileManipulator::FileManipulator()
  * @param string the QString to write to the file.
  * @param fileName the name of the file to create.
  */
-void FileManipulator::save_to_file(QString string, QString fileName)
+void FileManipulator::saveToFile(QString string, QString fileName)
 {
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly)) {
@@ -47,7 +47,7 @@ void FileManipulator::save_to_file(QString string, QString fileName)
  * @return The contents of the file as a QString or an empty string
  * if the contents of the file do not satisfy the xsd schema.
  */
-QString FileManipulator::read_from_file(QString fileName)
+QString FileManipulator::readFromFile(QString fileName)
 {
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly)) {
@@ -76,3 +76,14 @@ QString FileManipulator::read_from_file(QString fileName)
 
     return fileContent;
 }
+
+bool FileManipulator::isValidHtml(QString html)
+{
+    QByteArray data(html.toUtf8());
+
+    QBuffer buffer(&data);
+    buffer.open(QIODevice::ReadOnly);
+
+    return xml_validator->validate(html);
+}
+

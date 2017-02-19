@@ -14,5 +14,7 @@ int HtmlAnchor::getType()
 
 QString HtmlAnchor::toHtml()
 {
-    return "";
+    return  QString("<a href='%1'>%2</a>")
+            .arg(attributes.value("Link"),
+                 attributes.value("Text"));
 }

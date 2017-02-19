@@ -28,7 +28,9 @@ SOURCES += main.cpp\
     htmlitalic.cpp \
     htmlbold.cpp \
     htmlimage.cpp \
-    htmlanchor.cpp
+    htmlanchor.cpp \
+    htmlsubscript.cpp \
+    htmlsuperscript.cpp
 
 HEADERS  += mainwindow.h \
     filemanipulator.h \
@@ -45,7 +47,9 @@ HEADERS  += mainwindow.h \
     htmlitalic.h \
     htmlbold.h \
     htmlimage.h \
-    htmlanchor.h
+    htmlanchor.h \
+    htmlsubscript.h \
+    htmlsuperscript.h
 
 FORMS    += mainwindow.ui
 

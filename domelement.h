@@ -22,6 +22,8 @@ public:
     static const int BOLD_TYPE = 6;
     static const int IMAGE_TYPE = 7;
     static const int ANCHOR_TYPE = 8;
+    static const int SUBSCRIPT_TYPE = 9;
+    static const int SUPERSCRIPT_TYPE = 10;
 protected:
     QMap<QString, QString> attributes;
 private:

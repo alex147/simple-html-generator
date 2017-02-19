@@ -13,5 +13,6 @@ int HtmlParagraph::getType()
 
 QString HtmlParagraph::toHtml()
 {
-    return "";
+    return  QString("<p>%1</p>")
+            .arg(attributes.value("Text"));
 }

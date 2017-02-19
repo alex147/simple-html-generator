@@ -1,7 +1,6 @@
 #ifndef HTMLHEADING_H
 #define HTMLHEADING_H
 
-#include <QMap>
 #include <QWidget>
 #include "domelement.h"
 

@@ -13,5 +13,7 @@ int HtmlItalic::getType()
 
 QString HtmlItalic::toHtml()
 {
-    return "";
+    return  QString("<i>%1</i>")
+            .arg(attributes.value("Text"));
+
 }

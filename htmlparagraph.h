@@ -1,7 +1,6 @@
 #ifndef HTMLPARAGRAPH_H
 #define HTMLPARAGRAPH_H
 
-#include <QMap>
 #include <QWidget>
 #include "domelement.h"
 

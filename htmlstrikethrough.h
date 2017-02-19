@@ -1,7 +1,6 @@
 #ifndef HTMLSTRIKETHROUGH_H
 #define HTMLSTRIKETHROUGH_H
 
-#include <QMap>
 #include <QWidget>
 #include "domelement.h"
 

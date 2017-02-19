@@ -13,5 +13,6 @@ int HtmlUnderline::getType()
 
 QString HtmlUnderline::toHtml()
 {
-    return "";
+    return  QString("<u>%1</u>")
+            .arg(attributes.value("Text"));
 }

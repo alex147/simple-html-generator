@@ -9,6 +9,8 @@
 #include "htmlbold.h"
 #include "htmlimage.h"
 #include "htmlanchor.h"
+#include "htmlsubscript.h"
+#include "htmlsuperscript.h"
 
 #include <QtWidgets>
 #include <QLayout>
@@ -52,6 +54,14 @@ ElementsArea::ElementsArea()
     strikethrough->setPixmap(MainWindow::awesome->icon( fa::strikethrough ).pixmap(48,48));
     strikethrough->setAttribute(Qt::WA_DeleteOnClose);
 
+    HtmlSubscript *subscript = new HtmlSubscript();
+    subscript->setPixmap(MainWindow::awesome->icon( fa::subscript ).pixmap(48,48));
+    subscript->setAttribute(Qt::WA_DeleteOnClose);
+
+    HtmlSuperscript *superscript = new HtmlSuperscript();
+    superscript->setPixmap(MainWindow::awesome->icon( fa::superscript ).pixmap(48,48));
+    superscript->setAttribute(Qt::WA_DeleteOnClose);
+
     FlowLayout* layout = new FlowLayout(this);
     layout->addWidget(anchor);
     layout->addWidget(image);
@@ -61,4 +71,6 @@ ElementsArea::ElementsArea()
     layout->addWidget(italic);
     layout->addWidget(underline);
     layout->addWidget(strikethrough);
+    layout->addWidget(subscript);
+    layout->addWidget(superscript);
 }

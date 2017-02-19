@@ -1,7 +1,6 @@
 #ifndef HTMLITALIC_H
 #define HTMLITALIC_H
 
-#include <QMap>
 #include <QWidget>
 #include "domelement.h"
 

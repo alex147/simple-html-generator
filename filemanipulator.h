@@ -11,8 +11,9 @@ class FileManipulator
 {
 public:
     FileManipulator();
-    void save_to_file(QString string, QString fileName);
-    QString read_from_file(QString fileName);
+    void saveToFile(QString string, QString fileName);
+    QString readFromFile(QString fileName);
+    bool isValidHtml(QString html);
 private:
     /**
      * @brief The HTML validator used to validate opened files.

@@ -8,6 +8,8 @@
 #include "htmlbold.h"
 #include "htmlimage.h"
 #include "htmlanchor.h"
+#include "htmlsubscript.h"
+#include "htmlsuperscript.h"
 
 #include <QtWidgets>
 
@@ -122,6 +124,8 @@ DomElement *DragWidget::createDomElement(int type)
         case DomElement::BOLD_TYPE: newElement = new HtmlBold(this); break;
         case DomElement::IMAGE_TYPE: newElement = new HtmlImage(this); break;
         case DomElement::ANCHOR_TYPE:newElement = new HtmlAnchor(this); break;
+        case DomElement::SUBSCRIPT_TYPE:newElement = new HtmlSubscript(this); break;
+        case DomElement::SUPERSCRIPT_TYPE:newElement = new HtmlSuperscript(this); break;
     }
 
     return newElement;
