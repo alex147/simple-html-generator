@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <i> HTML tag.
+ */
 class HtmlItalic : public DomElement
 {
 public:

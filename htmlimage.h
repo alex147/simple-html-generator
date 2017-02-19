@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <img> HTML tag.
+ */
 class HtmlImage : public DomElement
 {
 public:

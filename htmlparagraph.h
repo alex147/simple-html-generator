@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <p> HTML tag.
+ */
 class HtmlParagraph : public DomElement
 {
 public:

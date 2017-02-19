@@ -3,6 +3,9 @@
 
 #include <QMap>
 
+/**
+ * @brief A service class responsible for displaying input dialogs.
+ */
 class DialogService
 {
 public:

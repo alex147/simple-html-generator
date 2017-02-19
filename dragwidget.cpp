@@ -24,6 +24,11 @@ DragWidget::DragWidget(QWidget *parent)
     dialogService = new DialogService();
 }
 
+/**
+ * @brief This function overrides {#link QWidget#paintEvent}.
+ * This is done to ensure that custom stylesheets can be set for this element.
+ * If this function is not overridden, stylesheets would not work!
+ */
 void DragWidget::paintEvent(QPaintEvent *)
 {
     QStyleOption opt;

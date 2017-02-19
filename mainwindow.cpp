@@ -162,6 +162,9 @@ void MainWindow::on_actionOpen_triggered()
     ui->previewText->setPlainText(fileContent);
 }
 
+/**
+ * @brief Handler for the Help > About menu item.
+ */
 void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox::information(
@@ -201,12 +204,23 @@ bool MainWindow::showProgressLossWarning()
     return true;
 }
 
+/**
+ * @brief Handler for the Copy to Clipboard button.
+ *
+ * As suggested by the button name, copies the content of the
+ * Preview text area to the clipboard.
+ */
 void MainWindow::on_copyToClipButton_clicked()
 {
     QApplication* application = static_cast<QApplication *>(QApplication::instance());
     application->clipboard()->setText(ui->previewText->toPlainText());
 }
 
+/**
+ * @brief Handler for the Generate HTML button.
+ *
+ * As suggested by the button name, generates HTML based on the user selection.
+ */
 void MainWindow::on_translateButton_clicked()
 {
     QList<DomElement *> domElements = ui->designerTab->findChild<QObject *>("dropArea")->findChildren<DomElement *>();
@@ -219,7 +233,7 @@ void MainWindow::on_translateButton_clicked()
 
     generatedHtml = generatedHtml % "</body>\n</html>";
 
-    /* Figure out why the schema thinks the generated HTML is invalid.
+    /* TODO: Figure out why the schema thinks the generated HTML is invalid.
      * Looks to have something to do with special characters like slashes and greater/smaller-than signs.
      *
     if (!fileManipulator->isValidHtml(generatedHtml))

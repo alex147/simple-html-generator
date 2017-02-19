@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <b> HTML tag.
+ */
 class HtmlBold : public DomElement
 {
 public:

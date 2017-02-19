@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <s> HTML tag.
+ */
 class HtmlStrikethrough : public DomElement
 {
 public:

@@ -15,6 +15,11 @@
 #include <QtWidgets>
 #include <QLayout>
 
+/**
+ * @brief Constructs the Elements Area.
+ *
+ * This area contains all available HTML elements.
+ */
 ElementsArea::ElementsArea()
     : DragWidget()
 {

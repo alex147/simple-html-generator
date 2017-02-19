@@ -13,6 +13,11 @@ DialogService::DialogService()
 
 }
 
+/**
+ * @brief Displays the Edit attributes dialog for a {@link DomElement}.
+ * @param inputMap Contains a key-value pair for each available attribute on a given {@link DomElement}.
+ * @return The updated map with attributes and values.
+ */
 QMap<QString, QString> DialogService::showDialog(QMap<QString, QString> &inputMap)
 {
     QDialog dialog(Q_NULLPTR);

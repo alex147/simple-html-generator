@@ -12,6 +12,11 @@ DropArea::DropArea()
 
 }
 
+/**
+ * @brief This function overrides {#link QWidget#paintEvent}.
+ * This is done to ensure that custom stylesheets can be set for this element.
+ * If this function is not overridden, stylesheets would not work!
+ */
 void DropArea::paintEvent(QPaintEvent *)
 {
     QStyleOption opt;

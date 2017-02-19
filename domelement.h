@@ -4,6 +4,11 @@
 #include <QLabel>
 #include <QMap>
 
+/**
+ * @brief Base class that represents an HTML element.
+ *
+ * All supported HTML elements should inherit from this class.
+ */
 class DomElement : public QLabel
 {
 public:

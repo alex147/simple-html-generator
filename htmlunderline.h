@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <u> HTML tag.
+ */
 class HtmlUnderline : public DomElement
 {
 public:

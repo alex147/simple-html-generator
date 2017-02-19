@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <sub> HTML tag.
+ */
 class HtmlSubscript : public DomElement
 {
 public:

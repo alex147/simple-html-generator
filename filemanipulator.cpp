@@ -77,6 +77,11 @@ QString FileManipulator::readFromFile(QString fileName)
     return fileContent;
 }
 
+/**
+ * @brief Validates the provided HTML document against a predefined schema.
+ * @param html The HTML to validate as a {@link QString}
+ * @return True if the provided HTML is valid, false otherwise.
+ */
 bool FileManipulator::isValidHtml(QString html)
 {
     QByteArray data(html.toUtf8());

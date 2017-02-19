@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <sup> HTML tag.
+ */
 class HtmlSuperscript : public DomElement
 {
 public:

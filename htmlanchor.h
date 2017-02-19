@@ -4,6 +4,9 @@
 #include <QWidget>
 #include "domelement.h"
 
+/**
+ * @brief Represents the <a> HTML tag.
+ */
 class HtmlAnchor : public DomElement
 {
 public:
