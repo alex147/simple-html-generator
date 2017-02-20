@@ -146,6 +146,12 @@ void DragWidget::mousePressEvent(QMouseEvent *event)
     if (!child)
         return;
 
+    if(event->button() == Qt::RightButton && child->getDoubleClickEnabled())
+    {
+        deleteElement(child);
+        return;
+    }
+
     tmp = child->getAttributes();
 
     QPixmap pixmap = *child->pixmap();
@@ -202,4 +208,14 @@ void DragWidget::mouseDoubleClickEvent(QMouseEvent * event)
             child->setAttributes(result);
         }
     }
+}
+
+
+/**
+ * @brief Deletes the given {@link DomElement}
+ * @param element The element to delete
+ */
+void DragWidget::deleteElement(DomElement *element)
+{
+    delete element;
 }

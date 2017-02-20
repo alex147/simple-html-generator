@@ -24,6 +24,7 @@ protected:
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
     void mouseDoubleClickEvent(QMouseEvent * event) Q_DECL_OVERRIDE;
     void paintEvent(QPaintEvent *event);
+    void deleteElement(DomElement *element);
 private:
     DomElement *createDomElement(int type);
     DialogService* dialogService;
